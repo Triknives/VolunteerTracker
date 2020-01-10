@@ -49,7 +49,7 @@ class Project
   end
 
   def self.find(id)
-    album = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
+    project = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
     if project
       name = project.fetch("name")
       id = project.fetch("id").to_i
