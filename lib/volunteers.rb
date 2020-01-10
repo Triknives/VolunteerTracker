@@ -3,13 +3,13 @@ class Volunteer
 
   def initialize(attributes)
     @volunteer_name = attributes.fetch(:volunteer_name)
-    @album_id = attributes.fetch(:project_id)
+    @project_id = attributes.fetch(:project_id)
     @id = attributes.fetch(:id)
   end
 
   def ==(volunteer_to_compare)
     if volunteer_to_compare != nil
-      (self.volunteer_name() == volunteer_to_compare.volunteer_name()) && (self.project_id() == song_to_compare.project_id())
+      (self.volunteer_name() == volunteer_to_compare.volunteer_name()) && (self.project_id() == volunteer_to_compare.project_id())
     else
       false
     end
@@ -34,7 +34,7 @@ class Volunteer
 
   def self.find(id)
     volunteer = DB.exec("SELECT * FROM volunteers WHERE id = #{id};").first
-    if song
+    if volunteer
       volunteer_name = volunteer.fetch("volunteer_name")
       project_id = volunteer.fetch("project_id").to_i
       id = volunteer.fetch("id").to_i
@@ -60,8 +60,8 @@ class Volunteer
 
   def self.find_by_project(prj_id)
     volunteers = []
-    returned_volunteers = DB.exec("SELECT * FROM volunteers WHERE album_id = #{prj_id};")
-    returned_volunteers.each() do |song|
+    returned_volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{prj_id};")
+    returned_volunteers.each() do |volunteer|
       volunteer_name = volunteer.fetch("volunteer_name")
       id = volunteer.fetch("id").to_i
       volunteers.push(Volunteer.new({:volunteer_name => volunteer_name, :project_id => prj_id, :id => id}))

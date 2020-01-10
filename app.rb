@@ -1,44 +1,43 @@
 require('sinatra')
 require('sinatra/reloader')
-require('./lib/album')
-require('./lib/artist')
-require('./lib/song')
+require('./lib/project')
+require('./lib/volunteers')
 require('pry')
 require ('pg')
 also_reload('lib/**/*.rb')
 
-DB = PG.connect({:dbname => "record_store"})
+DB = PG.connect({:dbname => "volunteer_tracker"})
 
 get('/') do
-  redirect to('/albums')
+  redirect to('/projects')
 end
 
-# ALBUM ROUTING:
+# PROJECT ROUTING:
 
-get('/albums') do
+get('/') do
   if params["search"]
-    @albums = Album.search(params[:search])
+    @projects = Project.search(params[:search])
   elsif params["sort"]
-    @albums = Album.sort()
+    @projects = Project.sort()
   else
-    @albums = Album.all
+    @projects = Project.all
   end
-  erb(:albums)
+  erb(:projects)
 end
 
-get ('/albums/new') do
-  erb(:new_album)
+get ('/projects/new') do
+  erb(:new_project)
 end
 
-post ('/albums') do
-  name = params[:album_name]
-  album = Album.new({:name => name, :id => nil})
-  album.save()
-  redirect to('/albums')
+post ('/projects') do
+  name = params[:name]
+  project = Project.new({:name => name, :id => nil})
+  project.save()
+  redirect to('/projects')
 end
 
-get ('/albums/:id') do
-  @album = Album.find(params[:id].to_i())
+get ('/projects/:id') do
+  @project = Project.find(params[:id].to_i())
   if @album != nil
     erb(:album)
   else
