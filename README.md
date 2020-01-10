@@ -2,7 +2,7 @@
 
 #### _This is an application that tracks projects and the volunteers working on them. Each volunteer will belong to only one project (one project, many volunteers)._, _1/10/2019_
 
-#### By _**{Brett Cordell}**_
+#### By _**Brett Cordell**_
 
 ## Description
 
@@ -40,4 +40,4 @@ _If you have any concerns, comments or even suggestions on how to better organiz
 
 *This software is licensed under the MIT license.*
 
-Copyright (c) 2019 **_{Brett Cordell}_**
+Copyright (c) 2019 **_Brett Cordell_**
