@@ -8,6 +8,12 @@
 
 _This is an application that will utilize Sinatra and pSql (with Ruby) to create a database to better support the tracking of volunteers, assigned to volunteer projects. Each volunteer will be able to assigned to one volunteer project at a time, but each project will be assigned many volunteers. This application will manage a one-to-many relationship between a project and assigned volunteers._
 
+## Expected Behaviors and Functionality
+
+* _As a non-profit employee, User will be able to view, add, update and delete projects_
+* _As a non-profit employee, User will be able to view and add volunteers._
+* _As a non-profit employee, User will be able to add volunteers to a project._
+
 ## Setup/Installation Requirements
 
 * _Clone or download Git files provided._
