@@ -1,16 +1,14 @@
 require 'rspec'
 require 'pg'
-require 'album'
-require 'song'
+require 'project'
+require 'volunteers'
 require 'pry'
-require 'artist'
 
-DB = PG.connect({:dbname => 'record_store_test'})
+DB = PG.connect({:dbname => 'volunteer_tracker_test'})
 
 RSpec.configure do |config|
   config.after(:each) do
-    DB.exec("DELETE FROM albums *;")
-    DB.exec("DELETE FROM songs *;")
-    DB.exec("DELETE FROM artists *;")
+    DB.exec("DELETE FROM projects *;")
+    DB.exec("DELETE FROM volunteers *;")
   end
 end
