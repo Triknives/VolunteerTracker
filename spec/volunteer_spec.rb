@@ -45,55 +45,55 @@ describe '#Volunteer' do
       expect(Volunteer.all).to(eq([volunteer]))
     end
   end
-  
+
   describe('.find') do
-    it("finds a song by id") do
-      song = Song.new({:name => "Giant Steps", :album_id => @album.id, :id => nil})
-      song.save()
-      song2 = Song.new({:name => "Naima", :album_id => @album.id, :id => nil})
-      song2.save()
-      expect(Song.find(song.id)).to(eq(song))
+    it("finds a volunteer by id") do
+      volunteer = Volunteer.new({:volunteer_name => "Giant Steps", :project_id => @project.id, :id => nil})
+      volunteer.save()
+      volunteer2 = Volunteer.new({:volunteer_name => "Naima", :project_id => @project.id, :id => nil})
+      volunteer2.save()
+      expect(Volunteer.find(volunteer.id)).to(eq(volunteer))
     end
   end
-  #
-  # describe('#update') do
-  #   it("updates an song by id") do
-  #     song = Song.new({:name => "Naima", :album_id => @album.id, :id => nil})
-  #     song.save()
-  #     song.update("Mr. P.C.", @album.id)
-  #     expect(song.name).to(eq("Mr. P.C."))
-  #   end
-  # end
-  #
-  # describe('#delete') do
-  #   it("deletes all songs belonging to a deleted album") do
-  #     album = Album.new({:name => "A Love Supreme", :id => nil})
-  #     album.save()
-  #     song = Song.new({:name => "Naima", :album_id => album.id, :id => nil})
-  #     song.save()
-  #     album.delete()
-  #     expect(Song.find(song.id)).to(eq(nil))
-  #   end
-  # end
-  #
-  # describe('.find_by_album') do
-  #   it("finds songs for an album") do
-  #     album2 = Album.new({:name => "Blue", :id => nil})
-  #     album2.save
-  #     song = Song.new({:name => "Naima", :album_id => @album.id, :id => nil})
-  #     song.save()
-  #     song2 = Song.new({:name => "California", :album_id => album2.id , :id => nil})
-  #     song2.save()
-  #     expect(Song.find_by_album(album2.id)).to(eq([song2]))
-  #   end
-  # end
-  #
-  # describe('#album') do
-  #   it("finds the album a song belongs to") do
-  #     song = Song.new({:name => "Naima", :album_id => @album.id, :id => nil})
-  #     song.save()
-  #     expect(song.album()).to(eq(@album))
-  #   end
-  # end
+
+  describe('#update') do
+    it("updates a volunteer by id") do
+      volunteer = Volunteer.new({:volunteer_name => "Naima", :project_id => @project.id, :id => nil})
+      volunteer.save()
+      volunteer.update("Deltron", @project.id)
+      expect(volunteer.volunteer_name).to(eq("Deltron"))
+    end
+  end
+
+  describe('#delete') do
+    it("deletes all volunteers belonging to a deleted project") do
+      project = Project.new({:name => "Oregon Lifeline", :id => nil})
+      project.save()
+      volunteer = Volunteer.new({:volunteer_name => "Naima", :project_id => project.id, :id => nil})
+      volunteer.save()
+      project.delete()
+      expect(Volunteer.find(volunteer.id)).to(eq(nil))
+    end
+  end
+
+  describe('.find_by_project') do
+    it("finds volunteers for a project") do
+      project2 = Project.new({:name => "Blue", :id => nil})
+      project2.save
+      volunteer = Volunteer.new({:volunteer_name => "Naima", :project_id => @project.id, :id => nil})
+      volunteer.save()
+      volunteer2 = Volunteer.new({:volunteer_name => "California", :project_id => project2.id , :id => nil})
+      volunteer2.save()
+      expect(Volunteer.find_by_project(project2.id)).to(eq([volunteer2]))
+    end
+  end
+
+  describe('#projects') do
+    it("finds the project a volunteer belongs to") do
+      volunteer = Volunteer.new({:volunteer_name => "Naima", :project_id => @project.id, :id => nil})
+      volunteer.save()
+      expect(volunteer.projects()).to(eq(@project))
+    end
+  end
 
 end

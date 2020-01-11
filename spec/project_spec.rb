@@ -49,7 +49,7 @@ describe '#Project' do
 #
   describe('#update') do
     it("updates a project by id") do
-      project = Project.new({:name => "Oregon Lifeline", :id => nil})
+      project = Project.new({:name => "Oregon Life", :id => nil})
       project.save()
       project.update("Oregon Lifeline")
       expect(project.name).to(eq("Oregon Lifeline"))
