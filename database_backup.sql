@@ -121,6 +121,8 @@ ALTER TABLE ONLY public.volunteers ALTER COLUMN id SET DEFAULT nextval('public.v
 --
 
 COPY public.projects (id, name) FROM stdin;
+3	Returning Veterans
+4	Oregon Lifeline
 \.
 
 
@@ -129,6 +131,8 @@ COPY public.projects (id, name) FROM stdin;
 --
 
 COPY public.volunteers (id, volunteer_name, project_id) FROM stdin;
+3	Stan	3
+4	Brett Cordell	4
 \.
 
 
@@ -136,14 +140,14 @@ COPY public.volunteers (id, volunteer_name, project_id) FROM stdin;
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('public.projects_id_seq', 1, false);
+SELECT pg_catalog.setval('public.projects_id_seq', 4, true);
 
 
 --
 -- Name: volunteers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('public.volunteers_id_seq', 1, false);
+SELECT pg_catalog.setval('public.volunteers_id_seq', 4, true);
 
 
 --
