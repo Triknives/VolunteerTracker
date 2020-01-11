@@ -9,12 +9,12 @@ also_reload('lib/**/*.rb')
 DB = PG.connect({:dbname => "volunteer_tracker"})
 
 get('/') do
-  redirect to('/projects')
+ redirect to ('/projects')
 end
 
 # PROJECT ROUTING:
 
-get('/') do
+get('/projects') do
   if params["search"]
     @projects = Project.search(params[:search])
   elsif params["sort"]
@@ -74,7 +74,7 @@ end
 
 post ('/projects/:id/volunteers') do
   @project = Project.find(params[:id].to_i())
-  volunteer = Volunteer.new({:name => params[:volunteer_name], :project_id => @project.id, :id => nil})
+  volunteer = Volunteer.new({:volunteer_name => params[:volunteer_name], :project_id => @project.id, :id => nil})
   volunteer.save()
   erb(:project)
 end

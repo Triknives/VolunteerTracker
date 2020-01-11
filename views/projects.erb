@@ -20,11 +20,11 @@
 <% if @projects.any? %>
 <ul>
   <% @projects.each do |project| %>
-  <li><a href="/albums/<%= project.id %>"><%= project.name %></a></li>
+  <li><a href="/projects/<%= project.id %>"><%= project.name %></a></li>
   <% end %>
 </ul>
 <% else %>
 <p>There are currently no PROJECTS to display.</p>
 <% end %>
 
-<a href="/albums/new">Add a new PROJECT</a>
+<a href="/projects/new">Add a new PROJECT</a>
