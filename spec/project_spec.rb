@@ -75,10 +75,10 @@ describe Project do
 
   # describe '#update' do
   #   it 'allows a user to update a project' do
-  #     project = Project.new({:name => 'Teaching Kids to Code')
+  #     project = Project.new({:name => 'Teaching Kids to Code'})
   #     project.save
-  #     project.update({:name => 'Teaching Ruby to Kids')
-  #     expect(project.name).to eq ('Teaching Ruby to Kids')
+  #     project.update({:name => 'Teaching Ruby to Kids'})
+  #     expect(project).to eq 'Teaching Ruby to Kids'
   #   end
   # end
 
