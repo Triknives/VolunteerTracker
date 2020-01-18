@@ -9,7 +9,7 @@ also_reload('lib/**/*.rb')
 DB = PG.connect({:dbname => "volunteer_tracker"})
 
 get('/') do
- redirect to ('/projects/new')
+ redirect to ('/projects')
 end
 
 # PROJECT ROUTING:
